@@ -36,12 +36,32 @@ main {
   padding: var(--space);
 }
 
+h1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+header {
+  display:flex;
+  justify-content: center;
+  background: var(--surface);
+  min-height: 3rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: var(--on-surface);
+}
+
 a {
   color: inherit;
   text-decoration: none;
   display: flex;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 min(3rem, 5vw);
 }
 
 a:hover, a:focus-visible {
@@ -52,19 +72,6 @@ a:active {
   background: var(--link-active);
 }
 
-h1 {
-  display: flex;
-  justify-content: center;
-}
-
-header {
-  display:flex;
-  justify-content: center;
-  top: 0;
-  background: var(--surface);
-  height: 3rem;
-}
-
 footer {
   background: var(--surface);
   color: var(--on-surface);
@@ -72,13 +79,14 @@ footer {
   margin-top: auto;
 }
 
-nav {
-  display: flex;
-  color: var(--on-surface);
+table {
+  border-collapse: collapse;
+  margin-inline: auto;
 }
 
 th, td {
-    border: 1px solid var(--text)
+    border: 1px solid var(--text);
+    padding: 0.25rem 0.5rem;
   }
 
 .introduction {
@@ -90,7 +98,7 @@ th, td {
 }
 
 .intro-img {
-  width: clamp(120px, 20%, 220px);
+  width: clamp(120px, 30%, 220px);
 }
 
 .tba-later {
@@ -104,4 +112,23 @@ th, td {
   justify-content: center;
   width: 100%;
   max-width: var(--content-width);
+}
+
+.contact-table {
+  width: 100%;
+  max-width: var(--content-width);
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+@media (max-width: 258px) {
+  /* At this width, 2rem padding takes too much space, and the table (and other stuff) overflows to the left */
+  main {
+    padding: var(--space) 0.25rem;
+  }
+  nav a {
+    padding: 0 0.5rem;
+  }
 }
