@@ -2,14 +2,22 @@
   /* color */
   --bg: #ffffff;
   --text: #1a1a1a;
-  --surface: #000000;
-  --on-surface: #ffffff;
+  --nav-bg: #000000;
+  --nav-text: #ffffff;
   --link-hover: #ff8080;
   --link-active: #333333;
   /* type & spacing */
   --font-size: 1rem;
   --space: 1rem;
   --content-width: 60ch;
+}
+
+:root[data-theme="dark"] {
+  --bg: #121212;
+  --text: #e6e6e6;
+  --nav-bg: #1f1f1f;
+  --nav-text: #e6e6e6;
+  --link-active: #444444;
 }
 
 * {
@@ -45,18 +53,20 @@ h1 {
 header {
   display:flex;
   justify-content: center;
-  background: var(--surface);
+  background: var(--nav-bg);
+  color: var(--nav-text);
   min-height: 3rem;
+  position: relative;
 }
 
 nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  color: var(--on-surface);
+  color: inherit;
 }
 
-a {
+nav a {
   color: inherit;
   text-decoration: none;
   display: flex;
@@ -64,17 +74,40 @@ a {
   padding: 0 min(3rem, 5vw);
 }
 
-a:hover, a:focus-visible {
+nav a:hover, nav a:focus-visible {
   color: var(--link-hover)
 }
 
-a:active {
+nav a:active {
   background: var(--link-active);
 }
 
+nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.theme-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 min(3rem, 5vw);
+}
+
+.theme-btn:hover,
+.theme-btn:focus-visible {
+  color: var(--link-hover);
+}
+
 footer {
-  background: var(--surface);
-  color: var(--on-surface);
+  background: var(--nav-bg);
+  color: inherit;
   padding: var(--space);
   margin-top: auto;
 }
