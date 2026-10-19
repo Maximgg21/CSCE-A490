@@ -4,6 +4,7 @@
   --text: #1a1a1a;
   --nav-bg: #000000;
   --nav-text: #ffffff;
+  --link: #0b5fff;
   --link-hover: #ff8080;
   --link-active: #333333;
   /* type & spacing */
@@ -17,6 +18,7 @@
   --text: #e6e6e6;
   --nav-bg: #1f1f1f;
   --nav-text: #e6e6e6;
+  --link: #8ab4ff;
   --link-active: #444444;
 }
 
@@ -42,25 +44,34 @@ main {
   align-items: center;
   flex: 1;
   padding: var(--space);
+  gap: 5rem;
 }
 
 h1 {
-  display: flex;
   justify-content: center;
   text-align: center;
 }
 
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
 header {
   display:flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
+  gap: 0.25rem 0.5rem;
+  padding-inline: 0.5rem;
   background: var(--nav-bg);
   color: var(--nav-text);
   min-height: 3rem;
-  position: relative;
 }
 
 nav {
   display: flex;
+  flex: 1 1 auto;
   flex-wrap: wrap;
   justify-content: center;
   color: inherit;
@@ -88,16 +99,13 @@ nav a[aria-current="page"] {
 }
 
 .theme-btn {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
   font: inherit;
   color: inherit;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0 min(3rem, 5vw);
+  flex: 0 0 auto;
 }
 
 .theme-btn:hover,
@@ -107,9 +115,31 @@ nav a[aria-current="page"] {
 
 footer {
   background: var(--nav-bg);
-  color: inherit;
+  color: var(--nav-text);
   padding: var(--space);
   margin-top: auto;
+}
+
+.projects {
+  width: 100%;
+  max-width: 70rem;
+  text-align: center;
+  
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space);
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.project-list li {
+  border: 1px solid var(--text);
+  padding: var(--space);
+  border-radius: 0.5rem;
 }
 
 table {
